@@ -327,7 +327,7 @@ func fetchFromVault(vaultKey string) string {
 
 	if secureVal != "" {
 		secureMap[vaultKey] = secureVal
-
+		fmt.Println(secureMap)
 		return secureVal
 	}
 
@@ -342,7 +342,7 @@ func fetchFromSSM(vaultKey string) *string {
 	// e.g. ssm@key
 	key := vaultKey[strings.Index(vaultKey, "@")+1:]
 
-	fmt.Printf("SSM key to fetch value %s", key)
+	fmt.Printf("\n\nSSM key  %s", key)
 
 	awsRegion := os.Getenv("AWS_REGION")
 	// use the default aws region

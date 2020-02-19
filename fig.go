@@ -374,7 +374,7 @@ func fetchFromSSM(vaultKey string) *string {
 		return nil
 	}
 	fmt.Println("\nSSM Value")
-	fmt.Println(val.Parameter.Value)
+	fmt.Println(*val.Parameter.Value)
 	fmt.Println(val)
 	fmt.Println(val.Parameter)
 	ssmVal := val.Parameter.Value

@@ -327,6 +327,7 @@ func fetchFromVault(vaultKey string) string {
 
 	if secureVal != "" {
 		secureMap[vaultKey] = secureVal
+		fmt.Printf("\n\n\n")
 		fmt.Println(secureMap)
 		return secureVal
 	}

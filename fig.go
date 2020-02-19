@@ -373,8 +373,10 @@ func fetchFromSSM(vaultKey string) *string {
 		fmt.Printf("SSM: Cannot fetch value across key %s", vaultKey)
 		return nil
 	}
-	fmt.Println("SSM Value")
+	fmt.Println("\nSSM Value")
 	fmt.Println(val.Parameter.Value)
+	fmt.Println(val)
+	fmt.Println(val.Parameter)
 	ssmVal := val.Parameter.Value
 	return ssmVal
 }

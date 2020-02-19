@@ -184,6 +184,8 @@ func StringOr(defaultVal string, keys ...string) string {
 	val := configuration.GetString(key)
 	val = fetchFromVault(val)
 
+	fmt.Printf("fetchFromVault value %s ", val)
+
 	if val == key {
 		return defaultVal
 	}
@@ -339,6 +341,8 @@ func fetchFromSSM(vaultKey string) *string {
 	// e.g. ssm@key
 	key := vaultKey[strings.Index(vaultKey, "@")+1:]
 
+	fmt.Printf("SSM key to fetch value %s", key)
+
 	awsRegion := os.Getenv("AWS_REGION")
 	// use the default aws region
 	if awsRegion == "" {
@@ -369,7 +373,8 @@ func fetchFromSSM(vaultKey string) *string {
 		fmt.Printf("SSM: Cannot fetch value across key %s", vaultKey)
 		return nil
 	}
-
+	fmt.Println("SSM Value")
+	fmt.Println(val.Parameter.Value)
 	ssmVal := val.Parameter.Value
 	return ssmVal
 }

@@ -321,6 +321,7 @@ func fetchFromVault(vaultKey string) string {
 		ssmVal := fetchFromSSM(vaultKey)
 		if ssmVal != nil {
 			secureVal = *ssmVal
+			fmt.Printf("\n\nSecure val %s", secureVal)
 		}
 	}
 
@@ -375,8 +376,7 @@ func fetchFromSSM(vaultKey string) *string {
 	}
 	fmt.Println("\nSSM Value")
 	fmt.Println(*val.Parameter.Value)
-	fmt.Println(val)
-	fmt.Println(val.Parameter)
-	ssmVal := val.Parameter.Value
-	return ssmVal
+
+	return val.Parameter.Value
+
 }

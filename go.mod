@@ -1,4 +1,4 @@
-module github.com/rightjoin/fig
+module github.com/shankar-modi/fig
 
 go 1.12
 
